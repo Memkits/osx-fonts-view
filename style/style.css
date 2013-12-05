@@ -1,0 +1,58 @@
+
+body {
+    margin: 0;
+    background: hsl(0, 0%, 98%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input, .item {
+    font-size: 24px;
+    line-height: 60px;
+    min-width: 400px;
+}
+
+input {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 15px hsl(0, 0%, 89%);
+}
+
+.item {
+    padding: 0 40px;
+    cursor: pointer;
+    transition-duration: 300ms;
+    display: flex;
+    text-shadow: 2px 1px 4px hsla(0, 0%, 0%, 0.24);
+}
+
+.item.at {
+    line-height: 190px;
+    background: white;
+    font-size: 30px;
+    box-shadow: 0 0 20px 3px hsla(0, 15%, 56%, 0.21);
+}
+
+.item:hover {
+    background: white;
+    
+}
+
+#root {
+    padding: 100px 0 400px;
+}
+
+.name {
+    flex: 2;
+}
+
+.text {
+    display: inline-block;
+    min-width: 600px;
+    flex: 3;
+}

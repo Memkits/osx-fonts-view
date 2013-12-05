@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OSX fonts</title>
+</head>
+<script type="text/javascript" src="http://exportsjs.u.qiniudn.com/require.js"></script>
+<script type="text/javascript">
+  require.config({
+    baseUrl: './',
+    paths: {
+      Ractive: 'http://exportsjs.u.qiniudn.com/Ractive',
+      parser: 'http://exportsjs.u.qiniudn.com/cirru-parser',
+      c2m: 'http://exportsjs.u.qiniudn.com/cirru-mustache',
+      text: 'http://exportsjs.u.qiniudn.com/requirejs-text',
+      json: 'http://exportsjs.u.qiniudn.com/requirejs-json'
+    }
+  })
+  require(['src/main'])
+</script>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<body>
+<div id='root'></div>
+</body>
+</html>
