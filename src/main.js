@@ -4,6 +4,7 @@
     var Ractive, c2m, font_tmpl, mustache, parse, types, view;
     console.log('start');
     Ractive = require('Ractive');
+    require('tap');
     parse = require('parser').parse;
     parse.compact = true;
     c2m = require('c2m');

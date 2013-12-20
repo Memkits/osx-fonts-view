@@ -1,0 +1,25 @@
+{
+  "name": "osx-fonts-view",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jiyinyiyong/osx-fonts-view",
+  "authors": [
+    "jiyinyiyong <jiyinyiyong@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.9",
+    "requirejs-text": "~2.0.10",
+    "requirejs-json": "*",
+    "ractive": "~0.3.8",
+    "cirru-parser": "~0.5.6",
+    "cirru-mustache": "~0.0.6",
+    "ractive-events-tap": "git@github.com:RactiveJS/Ractive-events-tap.git"
+  }
+}

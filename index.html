@@ -4,16 +4,17 @@
 <head>
   <title>OSX fonts</title>
 </head>
-<script type="text/javascript" src="http://exportsjs.u.qiniudn.com/require.js"></script>
+<script type="text/javascript" src="bower_components/requirejs/require.js"></script>
 <script type="text/javascript">
   require.config({
     baseUrl: './',
     paths: {
-      Ractive: 'http://exportsjs.u.qiniudn.com/Ractive',
-      parser: 'http://exportsjs.u.qiniudn.com/cirru-parser',
-      c2m: 'http://exportsjs.u.qiniudn.com/cirru-mustache',
-      text: 'http://exportsjs.u.qiniudn.com/requirejs-text',
-      json: 'http://exportsjs.u.qiniudn.com/requirejs-json'
+      "c2m": "bower_components/cirru-mustache/src/mustache",
+      "parser": "bower_components/cirru-parser/src/parser",
+      "Ractive": "bower_components/ractive/build/Ractive",
+      "json": "bower_components/requirejs-json/json",
+      "text": "bower_components/requirejs-text/text",
+      'tap': 'bower_components/ractive-events-tap/Ractive-events-tap'
     }
   })
   require(['src/main'])

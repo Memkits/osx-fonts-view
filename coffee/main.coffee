@@ -3,6 +3,7 @@ define (require, exports) ->
   console.log 'start'
 
   Ractive = require 'Ractive'
+  require 'tap'
   parse = require('parser').parse
   parse.compact = yes
   c2m = require 'c2m'
