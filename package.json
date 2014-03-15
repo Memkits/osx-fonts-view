@@ -1,0 +1,23 @@
+{
+  "name": "osx-fonts-view",
+  "version": "0.0.0",
+  "description": "OS X Fonts ------",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jiyinyiyong/osx-fonts-view.git"
+  },
+  "author": "jiyinyiyong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jiyinyiyong/osx-fonts-view/issues"
+  },
+  "homepage": "https://github.com/jiyinyiyong/osx-fonts-view",
+  "devDependencies": {
+    "vue": "~0.9.3",
+    "cirru-html": "~0.1.4"
+  }
+}
