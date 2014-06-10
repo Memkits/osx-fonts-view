@@ -1,26 +1,91 @@
+#!/usr/bin/env coffee
+project = 'repo/osx-fonts-view'
 
 require 'shelljs/make'
-fs = require 'fs'
-{renderer} = require 'cirru-html'
+path = require 'path'
+mission = require 'mission'
 
-station = require 'devtools-reloader-station'
-station.start()
+mission.time()
 
-target.html = ->
-  page = 'cirru/index.cirru'
-  render = renderer (cat page), '@filename': page
-  render().to 'index.html'
-  console.log 'wrote to index.html'
-  station.reload 'repo/osx'
+target.folder = ->
+  mission.tree
+    '.gitignore': ''
+    'README.md': ''
+    js: {}
+    build: {}
+    cirru: {'index.cirru': ''}
+    coffee: {'main.coffee': ''}
+    css: {'style.css': ''}
 
 target.coffee = ->
-  exec 'coffee -o js/ -wbc coffee/', async: yes
-  fs.watch 'js/', interval: 200, ->
-    exec 'browserify -o build/build.js -d js/main.js', ->
-      console.log 'browserify ok'
-      station.reload 'repo/osx'
+  mission.coffee
+    find: /\.coffee$/, from: 'coffee/', to: 'js/', extname: '.js'
+    options:
+      bare: yes
+
+cirru = (data) ->
+  mission.cirruHtml
+    file: 'index.cirru'
+    from: 'cirru/'
+    to: './'
+    extname: '.html'
+    data: data
+
+browserify = (callback) ->
+  mission.browserify
+    file: 'main.js', from: 'js/', to: 'build/', done: callback
+
+target.cirru = -> cirru inDev: yes
+target.cirruBuild = -> cirru inBuild: yes
+target.browserify = -> browserify()
+
+target.dev = ->
+  cirru inDev: yes
+  target.coffee yes
+  browserify()
+
+target.build = ->
+  cirru inBuild: yes
+  target.coffee yes
+  browserify()
 
 target.watch = ->
-  fs.watch 'cirru/', interval: 200, target.html
-  target.html()
-  target.coffee()
+  station = mission.reload()
+
+  mission.watch
+    files: ['cirru/', 'coffee/']
+    trigger: (filepath, extname) ->
+      switch extname
+        when '.cirru'
+          cirru inDev: yes
+          station.reload project
+        when '.coffee'
+          filepath = path.relative 'coffee/', filepath
+          mission.coffee
+            file: filepath, from: 'coffee/', to: 'js/', extname: '.js'
+            options:
+              bare: yes
+          browserify ->
+            station.reload project
+
+target.patch = ->
+  mission.bump
+    file: 'package.json'
+    options:
+      at: 'patch'
+
+target.rsync = ->
+  target.build()
+  mission.rsync
+    file: './'
+    dest: 'tiye:~/repo/osx-fonts-view'
+    options:
+      exclude: [
+        'node_modules/'
+        'bower_components/'
+        'coffee'
+        'README.md'
+        'js'
+        '.git/'
+        'png/*.jpg'
+      ]

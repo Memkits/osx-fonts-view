@@ -4,52 +4,49 @@ body {
     background: hsl(0, 0%, 98%);
 }
 
-* {
+body * {
     box-sizing: border-box;
 }
 
-input, .item {
-    font-size: 24px;
-    line-height: 60px;
-    min-width: 400px;
+
+#font-box {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
 }
 
-input {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    border: none;
-    outline: none;
+#font-list {}
+
+#space-before {
+    width: 100%;
+    background-color: rgb(128, 128, 255);
 }
 
-.item {
-    padding: 0 40px;
-    cursor: pointer;
+#space-after {
+    width: 100%;
+    background-color: red;
+}
+
+.font-line {
+    line-height: 80px;
     display: flex;
-    font-size: 18px;
+    padding: 0 40px;
+    font-size: 40px;
 }
 
-.item.at {
-    line-height: 90px;
-    background: white;
-    font-size: 24px;
+.font-input {
+    flex: 1;
+    outline: none;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
 }
 
-.item:hover {
-    background: white;
-    
-}
-
-#root {
-    padding: 100px 0 400px;
-}
-
-.name {
-    flex: 2;
-}
-
-.text {
-    display: inline-block;
-    min-width: 600px;
-    flex: 3;
+.font-name {
+    flex: 1;
 }
