@@ -1,5 +1,5 @@
 
-exports.guess = (name) ->
+exports.guessStyle = (name) ->
   style = {}
 
   if name[0] is '.'

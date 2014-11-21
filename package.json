@@ -22,6 +22,7 @@
     "gulp-uglify": "^0.3.1",
     "gulp-wait": "0.0.2",
     "gulp-watch": "^0.6.9",
+    "lodash": "^2.4.1",
     "make-filetree": "0.0.2",
     "react": "^0.12.*",
     "rsyncwrapper": "^0.4.1",

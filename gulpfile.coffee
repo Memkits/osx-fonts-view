@@ -1,10 +1,11 @@
 
 gulp = require 'gulp'
 
-project = 'workflow'
+project = 'osx-fonts-view'
 dev = yes
 libraries = [
   'react'
+  'lodash'
 ]
 
 gulp.task 'folder', ->
