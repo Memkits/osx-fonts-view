@@ -1,5 +1,6 @@
 
 React = require 'react'
+_ = require 'lodash'
 
 type = require '../type'
 
@@ -16,19 +17,19 @@ module.exports = React.createFactory React.createClass
     @props.onChange event.target.value
 
   renderSizes: ->
-    [3..0].map (x) =>
-      size = x * 6 + 12
+    [4..0].map (x) =>
+      size = 10 + (2 ** (x + 1))
       style =
         fontSize: size
-        lineHeight: "#{1.6 * size}px"
+        lineHeight: "#{1.4 * size}px"
       $.div key: x, style: style, @props.data
 
   render: ->
-    style = type.guessStyle @props.type
-    style.fontSize = (3 * 6 + 12 + 12)
-    style.lineHeight = "#{style.fontSize * 1.6}px"
-    $.div className: 'app-line',
+    size = 10 + (2 ** 6)
+    fontStyle = type.guessStyle @props.type
+    inputStyle = _.merge {fontSize: size, lineHeight: "#{size * 1.4}px"}, fontStyle
+    $.div className: 'app-line', style: fontStyle,
+      $.div style: fontStyle, className: 'name', @props.type
       $.div className: 'sizes',
-        $.input style: style, onChange: @onChange, value: @props.data
+        $.input style: inputStyle, onChange: @onChange, value: @props.data
         @renderSizes()
-      $.div style: style, className: 'name', @props.type

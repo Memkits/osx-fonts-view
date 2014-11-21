@@ -5,7 +5,7 @@ _ = require 'lodash'
 $ = React.DOM
 
 config =
-  height: 240
+  height: 300
 
 types = require '../list'
 Line = require './line'
@@ -14,8 +14,8 @@ module.exports = React.createFactory React.createClass
   displayName: 'app-table'
 
   getInitialState: ->
-    sample: 'Fonts in OS X'
-    showing: types.map -> 'Fonts in OS X'
+    sample: 'Explore fonts in OS X'
+    showing: types.map -> 'Explore fonts in OS X'
 
   computeVisibility: (index) ->
     unless @refs.box? then return true

@@ -1,6 +1,6 @@
 
 .app-line {
-    height: 240px;
+    height: 300px;
     display: flex;
     padding: 0 40px;
 }
@@ -10,6 +10,8 @@
 }
 .app-line .name {
     flex: 1;
+    font-size: 42px;
+    line-height: 1.4em;
 }
 
 .app-line input {
