@@ -1,6 +1,6 @@
 
 React = require 'react'
-FontList = require './app/font-list'
+Table = require './app/table'
 
-React.renderComponent (FontList {}),
+React.render (Table {}),
   document.querySelector('body')

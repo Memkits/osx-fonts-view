@@ -1,0 +1,22 @@
+
+.app-line {
+    height: 240px;
+    display: flex;
+    padding: 0 40px;
+}
+
+.app-line > .sizes {
+    flex: 2;
+}
+.app-line .name {
+    flex: 1;
+}
+
+.app-line input {
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    -webkit-appearance: none;
+}

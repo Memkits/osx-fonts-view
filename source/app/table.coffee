@@ -5,14 +5,13 @@ _ = require 'lodash'
 $ = React.DOM
 
 config =
-  height: 80
-  buffer: 80
+  height: 240
 
 types = require '../list'
-FontLine = require './font-line'
+Line = require './line'
 
 module.exports = React.createFactory React.createClass
-  displayName: 'font-list'
+  displayName: 'app-table'
 
   getInitialState: ->
     sample: 'Fonts in OS X'
@@ -22,16 +21,15 @@ module.exports = React.createFactory React.createClass
     unless @refs.box? then return true
     y = index * config.height
     top = @refs.box.getDOMNode().scrollTop
-    buf = config.buffer
-    (top - buf) < y < (top + innerHeight + buf)
+    (top - config.height) < y < (top + innerHeight + config.height)
 
   componentDidMount: ->
-    @throttleScroll = _.throttle =>
+    @slowScroll = _.throttle =>
       @forceUpdate()
-    , 200
+    , 80
 
   onScroll: ->
-    @throttleScroll()
+    @slowScroll()
 
   onChange: (text) ->
     @setState sample: text
@@ -41,9 +39,8 @@ module.exports = React.createFactory React.createClass
       visibility = @computeVisibility index
       sample = if visibility then @state.sample else ''
       fakeType = if visibility then type else ''
-      FontLine key: type, type: fakeType, data: sample, onChange: @onChange
+      Line key: type, type: fakeType, data: sample, onChange: @onChange
 
   render: ->
-    $.div id: 'font-box', ref: 'box', onScroll: @onScroll,
-      $.div id: 'font-list',
-        @renderNodes()
+    $.div className: 'app-table', ref: 'box', onScroll: @onScroll,
+      @renderNodes()
