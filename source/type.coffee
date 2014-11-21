@@ -2,6 +2,9 @@
 exports.guess = (name) ->
   style = {}
 
+  if name[0] is '.'
+    name = name[1..]
+
   if name.match /Bold/i
     style.fontWeight = 'bold'
     name = name.replace /Bold/i, ''

@@ -1,4 +1,6 @@
 
+React = require 'react'
+
 config =
   height: 80
   buffer: 80
@@ -12,8 +14,8 @@ chan = new EventEmitter
 typeList = require './type'
 
 store =
-  types: require '../data/types.json'
-  sample: 'Fonts in Marvericks'
+  types: require './list'
+  sample: 'Fonts in OS X'
   scrollTop: 0
 
 FontLine = React.createClass
