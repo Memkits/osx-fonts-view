@@ -24,7 +24,7 @@
     "gulp-watch": "^0.6.9",
     "lodash": "^4.17.19",
     "make-filetree": "0.0.2",
-    "react": "^0.12.*",
+    "react": "^16.13.*",
     "rsyncwrapper": "^0.4.1",
     "run-sequence": "^0.3.6",
     "vinyl-buffer": "0.0.0",
